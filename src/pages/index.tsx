@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Weather } from "@/components/weather/weather";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 export default function Home() {
   return (
     <div className="text-center">
-    <h2 className="text-3xl font-bold text-blue-600">Welcome to My Dashboard App</h2>
+    <Weather />
   </div>
   );
 }

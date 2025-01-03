@@ -3,9 +3,9 @@ type Weather = {
     city: string;
 }
 
-export const fetchWeather = async (city: string) => {
+export const fetchWeather = async () => {
 
-    const url = 'https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London&cnt=3&units=standard&type=three_hour&mode=json&lang=en';
+    const url = 'https://weather-api167.p.rapidapi.com/api/weather/forecast?lat=43.95977&lon=-78.16515&cnt=3&units=standard&type=three_hour&mode=json&lang=en';
     const options = {
         method: 'GET',
         headers: {
@@ -18,7 +18,7 @@ export const fetchWeather = async (city: string) => {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log(data);
+        console.log(data, 'component data');
         return data;
     } catch (error) {
         console.error(error);
