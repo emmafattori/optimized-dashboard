@@ -3,31 +3,25 @@ type Weather = {
     city: string;
 }
 
-// export const fetchWeather = async () => {
+export const fetchWeather = async () => {
 
-//     const url = 'https://open-weather13.p.rapidapi.com/city/cobourg/EN';
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'x-rapidapi-key': '8780038684mshf933dce4ebe00dfp171953jsn97e90579acca',
-//             'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
-//         }
-//     };
+    const url = 'https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=e99002bd1f715b636bb6dcdbd3faeef8'
+ 
     
-//     try {
-//         const response = await fetch(url, options);
-//         const result = await response.text();
-//         console.log(result);
-//     } catch (error) {
-//         console.error(error);
-//     }
+    try {
+        const response = await fetch(url);
+        const result = await response.text();
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
 
-//     try {
-//         const response = await fetch(url, options);
-//         const data = await response.json();
-//         console.log(data, 'component data');
-//         return data;
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log(data, 'component data');
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
