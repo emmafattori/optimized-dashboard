@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <div className="text-center">
+    <div className="text-center m-8">
     <Weather />
   </div>
   );

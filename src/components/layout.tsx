@@ -9,8 +9,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col">
         <nav>This is the navbar</nav>
       {/* Header */}
-      <header className="bg-blue-600 p-4 text-white">
-        <h1>My Next.js App</h1>
+      <header className="">
+        <h1>Emma's Dashboard</h1>
       </header>
       
       {/* Main content */}
@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       
       {/* Footer */}
       <footer className="bg-gray-800 text-white p-4 mt-4 text-center">
-        <p>© 2024 My App</p>
+        <p>© 2025 Emma Fattori</p>
       </footer>
     </div>
   );

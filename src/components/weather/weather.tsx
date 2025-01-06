@@ -1,30 +1,32 @@
 import { useEffect, useState } from "react"
-import { fetchWeather } from "../../../api/weather"
+// import { fetchWeather } from "../../../api/weather"
 
 export const Weather = () => {
 
-    const [weather, setWeather] = useState();
+    // const [weather, setWeather] = useState();
 
     useEffect(() => {
-        const getWeather = async () => {
-        try {
-          const weatherData = await fetchWeather()
-          console.log(weatherData, 'weatherData')
-          setWeather(weatherData.list[0].main[0].temperature)
+        // const getWeather = async () => {
+        // try {
+        //   const weatherData = await fetchWeather()
+        //   setWeather(weatherData.main.temp)
         
-        } catch (error) {
-            console.error(error)
-        }
-        }
-        getWeather()
+        // } catch (error) {
+        //     console.error(error)
+        // }
+        // }
+        // getWeather()
+
     }, [])
 
-    console.log('weather', weather)
 
     return (
-        <><div>This is the weather component. The city is Cobourg and the weather is {weather}</div>
+        <section className="shadow-xl w-1/2 p-4 rounded-xl"><div>
+            <h2 className="">Weather</h2>
+            <h4 className="text-2xl">Cobourg: 2°C - Cloudy ⛅️</h4>
+        </div>
 
 
-        </>
+        </section>
     )
 }
