@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { db, collection, addDoc } from '../../../firebase-config'
+import React, { useEffect, useState } from "react";
+import { db, collection, addDoc, getDocs } from '../../../firebase-config'
 
 interface Todo {
     id: string;
@@ -9,6 +9,7 @@ interface Todo {
 export const Todo = () => {
 
     const [todoInput, setTodoInput] = useState("");
+    const [todos, setTodos] = useState<Todo[]>([]);
 
     // Adding a TODO to Firestore
     const addUserToFirestore = async (e: React.FormEvent) => {
@@ -28,6 +29,26 @@ export const Todo = () => {
       }
     };
 
+    useEffect(() => {
+        const fetchTodos = async () => {
+          try {
+            const querySnapshot = await getDocs(collection(db, "todos"));
+            const fetchedTodos: Todo[] = [];
+            querySnapshot.forEach((doc) => {
+                    fetchedTodos.push({ id: doc.id, text: doc.data().text })
+
+            
+            });
+      
+            setTodos(fetchedTodos);  // Update state with the fetched todos
+          } catch (e) {
+            console.error("Error fetching todos: ", e);
+          }
+        };
+      
+        fetchTodos();  // Call the function when the component mounts
+      }, []);
+
     return (
         <section className="shadow-xl w-1/2 p-4 rounded-xl m-2">
             <div>
@@ -39,7 +60,9 @@ export const Todo = () => {
                 </form>
                 <div className="list">
                 <ul id="todoList"></ul>
-
+                {todos.map((todo) => (
+                    <li key={todo.id}>{todo.text}</li>
+                ))}
                 </div>
             </div>
         </section>
