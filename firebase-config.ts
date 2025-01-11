@@ -8,13 +8,13 @@ import { getFirestore, collection, addDoc, deleteDoc, doc, getDocs, query, where
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBXCLmDi2PdV3Gkwi6m53jgs6KGO3BkyO4",
-  authDomain: "emma-s-dashboard.firebaseapp.com",
-  projectId: "emma-s-dashboard",
-  storageBucket: "emma-s-dashboard.firebasestorage.app",
-  messagingSenderId: "824071076454",
-  appId: "1:824071076454:web:ac3e7371a846458a698ba7",
-  measurementId: "G-HCY2LFHSFE"
+  apiKey: process.env.NEXT_API_KEY,
+  authDomain: process.env.NEXT_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PROJECT_ID,
+  storageBucket: process.env.NEXT_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_APP_ID,
+  measurementId: process.env.NEXT_MEASUREMENT_ID
 };
 
 // Initialize Firebase
