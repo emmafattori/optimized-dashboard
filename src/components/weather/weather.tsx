@@ -36,7 +36,7 @@ export const Weather = () => {
 const weatherIcon = getIcon(weather ? weather : '')
 
     return (
-        <section className="shadow-xl w-1/2 p-4 rounded-xl"><div>
+        <section className="shadow-xl w-1/2 p-4 rounded-xl m-2"><div>
             <h2 className="">Weather</h2>
             <h4 className="text-2xl">Cobourg: 2°C - Cloudy {weatherIcon} </h4>
         </div>
