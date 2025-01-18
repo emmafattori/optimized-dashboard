@@ -52,16 +52,14 @@ export const Todo = () => {
             querySnapshot.forEach((doc) => {
                     fetchedTodos.push({ id: doc.id, text: doc.data().text })
 
-            
             });
-      
-            setTodos(fetchedTodos);  // Update state with the fetched todos
+            setTodos(fetchedTodos);
           } catch (e) {
             console.error("Error fetching todos: ", e);
           }
         };
       
-        fetchTodos();  // Call the function when the component mounts
+        fetchTodos();
       }, []);
 
     return (
@@ -69,14 +67,14 @@ export const Todo = () => {
             <div>
                 <h2>Daily To Dos</h2>
                 <form onSubmit={addToDoToFirestore}>
-                    <input id="todoInput" type="text" placeholder="Get groceries..."        value={todoInput}
+                    <input id="todoInput" type="text" placeholder="Get groceries..." className="shadow-xl w-1/2 p-4 rounded-xl m-2" value={todoInput}
                     onChange={(e) => setTodoInput(e.target.value)} />
-                    <button id="addTodoButton" type="submit">Add</button>
+                    <button className="bg-black text-white shadow-xl w-1/2 p-4 rounded-full m-2" id="addTodoButton" type="submit">Add</button>
                 </form>
                 <div className="list">
                 <ul id="todoList"></ul>
                 {todos.map((todo) => (
-                    <li key={todo.id}>{todo.text}
+                    <li key={todo.id} className="list-none">{todo.text}
                            <button 
                                     onClick={() => deleteToDo(todo.id)}
                                     className="ml-2 text-red-500"
